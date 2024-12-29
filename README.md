@@ -7,8 +7,13 @@
 
 #### Run code
 ```sh
+# Prerequisite: Export env variables
+export OMISE_PUBLIC_KEY="pkey_test_<key>"
+export OMISE_SECRET_KEY="skey_test_<key>"
+
+# To run main program
 go run cmd/go-tamboon/main.go -requestPerSec 4 -file fng.1000.csv.rot128
-#OR
+# OR
 ./bin/go-tamboon -requestPerSec 4 -file fng.1000.csv.rot128
 ```
 
@@ -16,7 +21,7 @@ go run cmd/go-tamboon/main.go -requestPerSec 4 -file fng.1000.csv.rot128
 
 #### Build Command
 ```sh
-OMISE_PUBLIC_KEY="<omise_public_key>" OMISE_SECRET_KEY="<omise_secret_key>" go build -o ./bin/go-tamboon cmd/go-tamboon/main.go
+go build -o ./bin/go-tamboon cmd/go-tamboon/main.go
 ```
 
 #### Screenshot from finished result
