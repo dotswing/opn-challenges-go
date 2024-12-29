@@ -30,3 +30,12 @@ There are a lot of errors due to low rate limit on Vault api for token creation
 To make all charges pass rate limit we could specify `-requestPerSec` option to `1`
 
 ![My Image](images/finished.png "Optional Title")
+
+Gif example of command running with high request/sec
+
+![My Image](images/command-run-example-high-rps.gif "Optional Title")
+
+Gif example of command running with low request/sec
+
+![My Image](images/command-run-example-low-rps.gif "Optional Title")
+
