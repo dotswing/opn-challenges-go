@@ -51,8 +51,10 @@ func main() {
 	fmt.Println()
 	fmt.Printf("average per person:   THB %s\n", numberutils.FormatFloat(averagePerPerson))
 	fmt.Println("\ntop donors (only successfully donated):")
-	for _, charge := range chargedResults[0:3] {
-		fmt.Printf("Name: %s, Amount: %s\n", charge.Card.Name, numberutils.FormatFloat(float64(charge.Amount)/100))
+	if len(chargedResults) > 0 && chargedResults[0].Status != "" {
+		for _, charge := range chargedResults[0:3] {
+			fmt.Printf("Name: %s, Amount: %s\n", charge.Card.Name, numberutils.FormatFloat(float64(charge.Amount)/100))
+		}
 	}
 	fmt.Println("\ntop donors (all including failed):")
 	sort.Slice(*donationRecords, func(i, j int) bool {
