@@ -38,7 +38,7 @@ func (o *PaymentCharger) CreateChargesFromDonations(donationRecords *[]donations
 	rateLimiter := time.NewTicker(time.Second / time.Duration(o.requestPerSec))
 	defer rateLimiter.Stop()
 
-	totalTasks := 5 //len(*donationRecords)
+	totalTasks := len(*donationRecords)
 	progress := make(chan ChargeProgress, totalTasks)
 	go func() {
 		completed := 0
@@ -50,7 +50,7 @@ func (o *PaymentCharger) CreateChargesFromDonations(donationRecords *[]donations
 		}
 	}()
 
-	for _, donationRecord := range (*donationRecords)[0:totalTasks] {
+	for _, donationRecord := range *donationRecords {
 		wg.Add(1)
 		<-rateLimiter.C
 		go func(donationRecord donations.Donation) {
